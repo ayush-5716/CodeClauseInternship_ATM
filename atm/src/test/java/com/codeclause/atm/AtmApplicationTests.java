@@ -1,10 +1,10 @@
-package com.codeclause.atm.atminterface;
+package com.codeclause.atm;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AtminterfaceApplicationTests {
+class AtmApplicationTests {
 
 	@Test
 	void contextLoads() {
