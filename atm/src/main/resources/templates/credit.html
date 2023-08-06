@@ -52,20 +52,24 @@
     </style>
 </head>
 <body>
+    <div>
+    <script>
+        console.log("hi there");
+    </script>
+     </div>
     <h1>Credit to Bank Account</h1>
+    <p><span th:text="${usb.first_name}"></span></p>
+    <P>
     <div class="form-container">
-        <form action="/crToBank" method="POST">
+        <form action="/credit/crToBank" method="POST">
+            
             <div class="form-group">
-                <label for="account-number">Account Number</label>
-                <input type="text" id="account-number" name="account-number" required>
+                <label for="amount">Amount to be Credited</label>
+                <input type="number" id="amount" name="amount" required>
             </div>
             <div class="form-group">
                 <label for="pin">PIN</label>
                 <input type="password" id="pin" name="pin" required>
-            </div>
-            <div class="form-group">
-                <label for="amount">Amount to be Credited</label>
-                <input type="number" id="amount" name="amount" required>
             </div>
             <!-- <div class="form-group">
                 <label for="credit-date">Credit Date</label>
@@ -74,5 +78,9 @@
             <button type="submit" class="btn">Credit Now</button>
         </form>
     </div>
+    <script>
+        // const greetingValue= localStorage.getItem('greeting');
+        console.log("greetingValue");
+    </script>
 </body>
 </html>
