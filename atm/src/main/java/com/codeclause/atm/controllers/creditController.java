@@ -27,10 +27,11 @@ public class creditController {
     @Autowired
     user_entRepository usRepo;
     @GetMapping("/cr")
-    public String creditPage(Model model,user_ent usb,RedirectAttributes attr){
+    public String creditPage(Model model,user_ent usb,RedirectAttributes attr) throws IOException{
         model.addAttribute("usb", usb);
         // attr.addFlashAttribute("usb", usb);
-
+        user_ent us = new JsonHandler().getObject();
+        model.addAttribute("usData", us);
         return "credit";
     }
 
