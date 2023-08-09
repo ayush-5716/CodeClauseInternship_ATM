@@ -20,4 +20,9 @@ public interface user_entRepository extends CrudRepository<user_ent, Long> {
     @Transactional
     @Query(nativeQuery = true,value="update kilo set AMOUNT= :amount where acc_number= :acc_number")
     public void updateAmount(@Param("amount") Long amount,@Param("acc_number") Long acc_number);
+
+    @Modifying
+    @Transactional
+    @Query(nativeQuery = true,value="update kilo set AMOUNT= :amount where acc_number= :acc_number")
+    public void loseAmount(@Param("amount") Long amount,@Param("acc_number") Long acc_number);
 }

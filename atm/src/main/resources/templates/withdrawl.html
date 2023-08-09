@@ -9,13 +9,18 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #e6f7ff; /* Light blue background color */
             margin: 0;
             padding: 0;
+            background-image: url("/image.png"); /* Light blue background color */
+            
+            background-repeat: no-repeat;
+            background-size: cover;
         }
         h1 {
             margin-top: 40px;
             color: #100;
+            font-family: 'Avenir', sans-serif;
+
         }
         .top-right {
             position: absolute;
@@ -94,15 +99,16 @@
         <p style="font-size: 20px; color: #333;">Account Number: <span th:text="${usData.acc_number}"></span></p>
     </div>
     <div class="form-container">
-        <form>
-            <div class="form-group">
-                <label style="font-size: 20px; color: #333;" for="cvv">PIN</label>
-                <input type="password" id="cvv" name="cvv" required>
-            </div>
+        <form action="/withFromBank" method="POST">
             <div class="form-group">
                 <label style="font-size: 20px; color: #333;" for="amount">Amount to be Withdrawn</label>
                 <input type="number" id="amount" name="amount" required>
             </div>
+            <div class="form-group">
+                <label style="font-size: 20px; color: #333;" for="pin">PIN</label>
+                <input type="password" id="pin" name="pin" required>
+            </div>
+            
             <button type="submit" class="btn">WITHDRAW</button>
         </form>
     </div>

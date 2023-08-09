@@ -36,7 +36,6 @@ public class JsonHandler {
 
         ObjectMapper objectMap =  new ObjectMapper();
         user_ent us = objectMap.readValue(jsonData,user_ent.class);
-        return us;
-        
+        return us;  
     }
 }
