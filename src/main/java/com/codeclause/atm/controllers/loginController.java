@@ -58,4 +58,18 @@ public class loginController {
         }
     }
 
+    @GetMapping("/create-account")
+    public String createMethod(Model model){
+        user_ent newUs = new user_ent();
+        model.addAttribute("userObj", newUs);
+        return "accCreate";
+    }
+
+    @PostMapping("/create-account/post")
+    public String saveEntity(user_ent newUs){
+        newUs.setAmount(0);
+        userRepo.save(newUs);
+        return "redirect:/";
+    }
+
 }

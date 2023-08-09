@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ATM Login</title>
+    <title>Create Account</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -79,12 +79,22 @@
     </style>
 </head>
 <body>
-    <h1>ATM LOGIN</h1>
+    <h1>Create Account</h1>
     <div class="top-right">
         <p style="font-size: 20px; color: #333;"> <span th:text="${date}"></span></p>
     </div>
     <div class="form-container">
-        <form action="/post" method="POST" th:object="${userObj}">
+        <form action="/create-account/post" method="POST" th:object="${userObj}">
+            <div class="form-group">
+                <!-- <label for="account-number">Account Number</label>
+                <input type="text" id="account-number" name="account-number" required> -->
+                <p style="font-size: 20px; color: #333;"> First Name: <input type="text" th:field="${userObj.first_name}" /> </p>
+            </div>
+            <div class="form-group">
+                <!-- <label for="account-number">Account Number</label>
+                <input type="text" id="account-number" name="account-number" required> -->
+                <p style="font-size: 20px; color: #333;"> Last Name: <input type="text" th:field="${userObj.last_name}" /> </p>
+            </div>
             <div class="form-group">
                 <!-- <label for="account-number">Account Number</label>
                 <input type="text" id="account-number" name="account-number" required> -->
@@ -95,11 +105,10 @@
                 <input type="password" id="pin" name="pin" required> -->
                 <p style="font-size: 20px; color: #333;"> PIN: <input type="text" th:field="${userObj.pin}" /> </p>
             </div>
-            <button type="submit" class="btn">Login</button>
+            
+            <button type="submit" class="btn">Create Account</button>
         </form>
-        <div class="button-container">
-            <a href="/create-account" class="btn1">Create Account</a>
-        </div>
+        
     </div>
 </body>
 </html>
