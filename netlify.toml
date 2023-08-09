@@ -1,8 +1,16 @@
-build:
-  artifacts:
-    - target/app.jar
+# This file defines the build and deploy configuration for your Netlify site.
+# For more information, see: https://docs.netlify.com/configure/file-based-configuration/
 
-deploy:
-  provider: netlify
-  publish:
-    - target/app.jar
+[build]
+  # The build command is run before your site is deployed.
+ 
+
+  # The build artifacts are the files that are deployed to Netlify.
+  artifacts = ["target/app.jar"]
+
+[deploy]
+  # The deploy provider is the service that is used to deploy your site.
+  provider = "netlify"
+
+  # The publish directory is the directory that is deployed to Netlify.
+  publish = "target"
