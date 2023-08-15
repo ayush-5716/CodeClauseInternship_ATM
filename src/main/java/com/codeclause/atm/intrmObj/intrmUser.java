@@ -1,4 +1,4 @@
-package com.codeclause.atm.intrmLoginObj;
+package com.codeclause.atm.intrmObj;
 
 public class intrmUser {
     int accNumber;

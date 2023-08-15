@@ -15,13 +15,13 @@ import com.codeclause.atm.mappers.JsonHandler;
 
 @Controller
 public class withdrawlController {
-    JsonHandler jsH = new JsonHandler();
+    JsonHandler<user_ent> jsH = new JsonHandler<user_ent>();
     @Autowired
     user_entRepository usRepo;
     
     @GetMapping("/withdrawl")
     public String with(Model model) throws IOException{
-        user_ent us = new JsonHandler().getObject();
+        user_ent us = new JsonHandler<user_ent>().getObject();
         model.addAttribute("usData", us);
         return "withdrawl";
     }
@@ -32,7 +32,7 @@ public class withdrawlController {
         if(usObj.getPin() == pin){
         usRepo.loseAmount(usObj.getAmount() - amount,usObj.getAcc_number());
         usObj.setAmount(usObj.getAmount() - amount );
-        jsH.write(usObj);
+        jsH.write(usObj,"dataStore.json");
         }
         return "redirect:/credit/cr";
     }

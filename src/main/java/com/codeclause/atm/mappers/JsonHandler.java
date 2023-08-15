@@ -8,17 +8,18 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import com.codeclause.atm.entities.user_ent;
+import com.codeclause.atm.intrmObj.weatherObj;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class JsonHandler {
+public class JsonHandler<T> {
 
-    public void write(user_ent userD) throws JsonProcessingException {
+    public void write(T userD,String fileName) throws JsonProcessingException {
         ObjectMapper objMap = new ObjectMapper();
         String data = objMap.writeValueAsString(userD);
         OutputStream os = null;
         try {
-            os = new FileOutputStream(new File("src/main/resources/templates/dataStore.json"));
+            os = new FileOutputStream(new File("src/main/resources/templates/" + fileName));
             os.write(data.getBytes(), 0, data.length());
         } catch (IOException e) {
             e.printStackTrace();
@@ -33,9 +34,15 @@ public class JsonHandler {
 
     public user_ent getObject() throws IOException{
         byte[] jsonData = Files.readAllBytes(Paths.get("src/main/resources/templates/dataStore.json"));
-
         ObjectMapper objectMap =  new ObjectMapper();
         user_ent us = objectMap.readValue(jsonData,user_ent.class);
-        return us;  
+        return us;
+    }
+
+    public weatherObj getWeatherObject() throws IOException{
+        byte[] jsonData = Files.readAllBytes(Paths.get("src/main/resources/templates/weathStore.json"));
+        ObjectMapper objectMap =  new ObjectMapper();
+        weatherObj us = objectMap.readValue(jsonData,weatherObj.class);
+        return us;
     }
 }

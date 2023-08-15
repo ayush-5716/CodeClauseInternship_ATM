@@ -22,7 +22,7 @@ import com.codeclause.atm.mappers.JsonHandler;
 @Controller
 public class creditController {
 
-    JsonHandler jsH = new JsonHandler();
+    JsonHandler<user_ent> jsH = new JsonHandler<user_ent>();
 
     @Autowired
     user_entRepository usRepo;
@@ -30,7 +30,7 @@ public class creditController {
     public String creditPage(Model model,user_ent usb,RedirectAttributes attr) throws IOException{
         model.addAttribute("usb", usb);
         // attr.addFlashAttribute("usb", usb);
-        user_ent us = new JsonHandler().getObject();
+        user_ent us = new JsonHandler<user_ent>().getObject();
         model.addAttribute("usData", us);
         return "credit";
     }
@@ -41,7 +41,7 @@ public class creditController {
         if(usObj.getPin() == pin){
         usRepo.updateAmount(usObj.getAmount() + amount,usObj.getAcc_number());
         usObj.setAmount(usObj.getAmount() + amount );
-        jsH.write(usObj);
+        jsH.write(usObj,"dataStore.json");
         }
         return "redirect:/credit/cr";
     }

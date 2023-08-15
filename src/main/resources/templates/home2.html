@@ -76,6 +76,8 @@
     <!-- Thymeleaf label at the top right showing the bank account balance -->
     <div class="top-right">
         <p style="font-size: 20px; color    : #333;">Bank Account Balance: Rs. <span th:text="${usData.amount}"></span></p>
+        <p style="font-size: 20px; color    : #333;">Temperature: <span th:text="${weath.temp}"></span> </p>
+        <p style="font-size: 20px; color    : #333;">Wind Speed: <span th:text="${weath.windSpeed}"></span> </p>
     </div>
 
     <!-- User's name at the top left -->
