@@ -21,7 +21,7 @@ public class JsonHandler<T> {
         String data = objMap.writeValueAsString(userD);
         OutputStream os = null;
         try {
-            os = new FileOutputStream(new File("src/main/resources/templates/" + fileName));
+            os = new FileOutputStream(new File("src/main/resources/templates/tempData/" + fileName));
             os.write(data.getBytes(), 0, data.length());
         } catch (IOException e) {
             e.printStackTrace();
@@ -35,21 +35,21 @@ public class JsonHandler<T> {
     }
 
     public user_ent getObject() throws IOException{
-        byte[] jsonData = Files.readAllBytes(Paths.get("src/main/resources/templates/dataStore.json"));
+        byte[] jsonData = Files.readAllBytes(Paths.get("src/main/resources/templates/tempData/dataStore.json"));
         ObjectMapper objectMap =  new ObjectMapper();
         user_ent us = objectMap.readValue(jsonData,user_ent.class);
         return us;
     }
 
     public weatherObj getWeatherObject() throws IOException{
-        byte[] jsonData = Files.readAllBytes(Paths.get("src/main/resources/templates/weathStore.json"));
+        byte[] jsonData = Files.readAllBytes(Paths.get("src/main/resources/templates/tempData/weathStore.json"));
         ObjectMapper objectMap =  new ObjectMapper();
         weatherObj us = objectMap.readValue(jsonData,weatherObj.class);
         return us;
     }
 
     public void deleteData(String fileName){
-        String filePath = "src/main/resources/templates/" + fileName;
+        String filePath = "src/main/resources/templates/tempData/" + fileName;
         
         // Create an empty JSON object
         JsonObject emptyJsonObject = new JsonObject();
