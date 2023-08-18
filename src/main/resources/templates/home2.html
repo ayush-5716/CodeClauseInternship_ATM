@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ATM</title>
+</head>
+<body>
     <style>
         /* Add your custom CSS styles here */
         body {
@@ -69,16 +71,15 @@
             background-color: #004380;
         }
     </style>
-</head>
-<body>
     <h1>ATM</h1>
     
     <!-- Thymeleaf label at the top right showing the bank account balance -->
-    <div class="top-right">
+    <logout th:replace="layouts :: logOut"></logout>
+    <!-- <div class="top-right">
         <p style="font-size: 20px; color    : #333;">Bank Account Balance: Rs. <span th:text="${usData.amount}"></span></p>
         <p style="font-size: 20px; color    : #333;">Temperature: <span th:text="${weath.temp}"></span> </p>
         <p style="font-size: 20px; color    : #333;">Wind Speed: <span th:text="${weath.windSpeed}"></span> </p>
-    </div>
+    </div> -->
 
     <!-- User's name at the top left -->
     <div class="top-left">
@@ -86,9 +87,9 @@
     </div>
 
     <!-- Account number of the user at the bottom right -->
-    <div class="bottom-right">
+    <!-- <div class="bottom-right">
         <p style="font-size: 20px; color: #333;">Account Number: <span th:text="${usData.acc_number}"></span></p>
-    </div>
+    </div> -->
 
     <!-- Button container -->
     <div class="button-container">

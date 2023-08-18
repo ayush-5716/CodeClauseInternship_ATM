@@ -14,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.codeclause.atm.dao.user_entRepository;
 import com.codeclause.atm.entities.user_ent;
+import com.codeclause.atm.intrmObj.weatherObj;
 import com.codeclause.atm.mappers.JsonHandler;
 
 
@@ -23,7 +24,7 @@ import com.codeclause.atm.mappers.JsonHandler;
 public class creditController {
 
     JsonHandler<user_ent> jsH = new JsonHandler<user_ent>();
-
+    JsonHandler<weatherObj> js = new JsonHandler<>();
     @Autowired
     user_entRepository usRepo;
     @GetMapping("/cr")
@@ -32,6 +33,7 @@ public class creditController {
         // attr.addFlashAttribute("usb", usb);
         user_ent us = new JsonHandler<user_ent>().getObject();
         model.addAttribute("usData", us);
+        model.addAttribute("weath", js.getWeatherObject());
         return "credit";
     }
 

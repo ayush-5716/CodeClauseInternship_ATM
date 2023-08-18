@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.codeclause.atm.dao.user_entRepository;
 import com.codeclause.atm.entities.user_ent;
+import com.codeclause.atm.intrmObj.weatherObj;
 import com.codeclause.atm.mappers.JsonHandler;
 
 @Controller
 public class withdrawlController {
     JsonHandler<user_ent> jsH = new JsonHandler<user_ent>();
+    JsonHandler<weatherObj> js = new JsonHandler<>();
     @Autowired
     user_entRepository usRepo;
     
@@ -23,6 +25,7 @@ public class withdrawlController {
     public String with(Model model) throws IOException{
         user_ent us = new JsonHandler<user_ent>().getObject();
         model.addAttribute("usData", us);
+        model.addAttribute("weath", js.getWeatherObject());
         return "withdrawl";
     }
 

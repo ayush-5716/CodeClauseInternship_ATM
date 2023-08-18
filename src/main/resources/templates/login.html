@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ATM Login</title>
+    
+
+</head>
+
+<body>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -89,12 +93,9 @@
             background-color: #0056b3;
         }
     </style>
-</head>
-
-<body>
-    <h1>Find your Current location</h1>
     <!-- <button onclick="getlocation()">Click me</button> -->
     <div id="location"></div>
+    <!-- http request for location -->
     <script>
 
         var x = document.getElementById("location");
@@ -110,13 +111,13 @@
             var longitude = position.coords.longitude;
 
             var x1 = "Your current location is (" + "Latitude: " + position.coords.latitude + ", " + "Longitude: " + position.coords.longitude + ")";
-            var x2 = position.coords.latitude; 
-            var x3 = position.coords.longitude; 
+            var x2 = position.coords.latitude;
+            var x3 = position.coords.longitude;
             // Send the variable to the server using AJAX
             var xhr = new XMLHttpRequest();
             xhr.open("POST", "/send-data", true);
             xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-            xhr.send(JSON.stringify({ latitude : x2, longitude : x3 }));
+            xhr.send(JSON.stringify({ latitude: x2, longitude: x3 }));
         }
     </script>
     <h1>ATM LOGIN</h1>
