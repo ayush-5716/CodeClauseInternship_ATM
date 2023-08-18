@@ -61,6 +61,13 @@ public class loginController {
         return "login";
     }
 
+    @GetMapping("/logout")
+    public String logOut(Model model) {
+        jsonWeath.deleteData("dataStore.json");
+        jsonWeath.deleteData("weathStore.json");
+        return "redirect:/";
+    }
+
     @PostMapping("/send-data")
     public void dataRecv(@RequestBody DataPayload payload) throws IOException {
         String url = "https://api.open-meteo.com/v1/forecast?latitude=" + payload.getLatitude() + "&longitude="
@@ -98,7 +105,7 @@ public class loginController {
             model.addAttribute("usObj", userD);
             attr.addFlashAttribute("usb", usObj);
             JsonHandler<user_ent> jsH = new JsonHandler<user_ent>();
-            jsH.write(userD,"dataStore.json");
+            jsH.write(userD, "dataStore.json");
             Date date = Calendar.getInstance().getTime();
             DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
             String strDate = dateFormat.format(date);

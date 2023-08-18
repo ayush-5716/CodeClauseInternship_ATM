@@ -101,20 +101,7 @@
         }
     </style>
     <h1>Withdrawal</h1>
-    <div class="top-right">
-        <p style="font-size: 20px; color    : #333;">Bank Account Balance: Rs. <span th:text="${usData.amount}"></span>
-        </p>
-    </div>
-
-    <!-- User's name at the top left -->
-    <div class="top-left">
-        <p style="font-size: 20px; color: #333;">User's Name: <span th:text="${usData.first_name}"></span></p>
-    </div>
-
-    <!-- Account number of the user at the bottom right -->
-    <div class="bottom-right">
-        <p style="font-size: 20px; color: #333;">Account Number: <span th:text="${usData.acc_number}"></span></p>
-    </div>
+    <logout th:replace="layouts :: logOut"></logout>
     <div class="form-container">
         <form action="/withFromBank" method="POST">
             <div class="form-group">
