@@ -64,7 +64,6 @@ public class loginController {
     @GetMapping("/logout")
     public String logOut(Model model) {
         jsonWeath.deleteData("dataStore.json");
-        jsonWeath.deleteData("weathStore.json");
         return "redirect:/";
     }
 
